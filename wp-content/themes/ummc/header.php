@@ -22,6 +22,7 @@
 	<link rel="shortcut icon" href="<?php bloginfo( 'url' ); ?>/favicon.ico">
 	<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/foundation.min.css?v=1.0" media="all">
 	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Karla:300,400,700" media="all">
+           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" media="all" />
 	<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/style.css?v=1.2" media="all">
 
 

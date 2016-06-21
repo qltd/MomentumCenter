@@ -1,5 +1,9 @@
 jQuery(function($){
 
+    $('.accordion-toggle').click(function(){
+        $(this).parent().toggleClass('open');
+    });
+
 	$('input[type="text"]').focus(function(){
 		if($(this).val() == $(this).prop('defaultValue'))
 		{ $(this).val(''); }

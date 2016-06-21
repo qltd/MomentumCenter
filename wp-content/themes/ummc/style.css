@@ -318,6 +318,53 @@ footer a:hover { color: #fff; }
 
 }
 
+.accordions {
+    margin-bottom: 20px;
+}
+
+.accordion .accordion-text {
+    margin-bottom: 10px;
+    max-height: 0px;
+    transition: all 0.5s ease;
+    overflow: hidden;
+}
+
+.accordion .accordion-text p {
+    padding: 5px;
+}
+.accordion.open .accordion-text {
+    max-height: 500px;
+}
+
+.accordion-toggle {
+    background: #669ACC;
+    pointer: cursor;
+    color: white;
+    font-size: 18px;
+    padding: 5px 20px 5px 30px;
+}
+
+.accordion-toggle i {
+    margin-right: 10px;
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 6px;
+    left: 10px;
+}
+
+.accordion .accordion-toggle .fa-minus {
+    opacity:1;
+}
+
+.accordion.open .accordion-toggle .fa-plus {
+    opacity: 0;
+}
+.accordion.open .accordion-toggle .fa-minus {
+    opacity: 1;
+}
+
+
+
 /* Mobile */
 @media only screen and (max-width: 480px) {
     body, html { min-width: 480px; }
