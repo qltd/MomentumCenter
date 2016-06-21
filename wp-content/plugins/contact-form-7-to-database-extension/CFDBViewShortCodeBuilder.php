@@ -1146,7 +1146,7 @@ class CFDBViewShortCodeBuilder extends CFDBView {
 
         <?php // RESET  ?>
         <span style="margin-left:10px">
-            <button id="reset_button"><?php echo htmlspecialchars(__('Reset', 'contact-form-7-to-database-extension')) ?></button>
+            <button id="reset_button" class="button"><?php echo htmlspecialchars(__('Reset', 'contact-form-7-to-database-extension')) ?></button>
         </span>
 
         <div id="form_validations_text" class="validation"></div>
@@ -1301,7 +1301,7 @@ class CFDBViewShortCodeBuilder extends CFDBView {
                 <label for="show_cntl"><?php echo htmlspecialchars(__('show', 'contact-form-7-to-database-extension')); ?></label>
                 <a target="_docs" href="http://cfdbplugin.com/?page_id=89#show"><img alt="?" src="<?php echo $infoImg ?>"/></a>
             </div>
-            <select name="add_show" id="add_show"></select><button id="btn_show">&raquo;</button>
+            <select name="add_show" id="add_show" class="button"></select><button id="btn_show" class="button">&raquo;</button>
             <input name="show_cntl" id="show_cntl" type="text" size="100" placeholder="<?php echo htmlspecialchars(__('field1,field2,field3', 'contact-form-7-to-database-extension')) ?>"/>
         </div>
         <div>
@@ -1309,7 +1309,7 @@ class CFDBViewShortCodeBuilder extends CFDBView {
                 <label for="hide_cntl"><?php echo htmlspecialchars(__('hide', 'contact-form-7-to-database-extension')); ?></label>
                 <a target="_docs" href="http://cfdbplugin.com/?page_id=89#hide"><img alt="?" src="<?php echo $infoImg ?>"/></a>
             </div>
-            <select name="add_hide" id="add_hide"></select><button id="btn_hide">&raquo;</button>
+            <select name="add_hide" id="add_hide" class="button"></select><button id="btn_hide" class="button">&raquo;</button>
             <input name="hide_cntl" id="hide_cntl" type="text" size="100" placeholder="<?php htmlspecialchars(__('field1,field2,field3', 'contact-form-7-to-database-extension')) ?>"/>
         </div>
     </div>
@@ -1343,11 +1343,13 @@ class CFDBViewShortCodeBuilder extends CFDBView {
                 <option value="===">===</option>
                 <option value="!==">!==</option>
                 <option value="~~">~~</option>
+                <option value="[in]">[in]</option>
+                <option value="[!in]">[!in]</option>
             </select>
             <input name="filter_val" id="filter_val" type="text" size="20" placeholder="<?php echo htmlspecialchars(__('value', 'contact-form-7-to-database-extension')) ?>"/>
-            <button id="btn_filter">&raquo;</button>
+            <button id="btn_filter" class="button">&raquo;</button>
             <span id="span_validate_submit_time" style="display:none;">
-                <button id="btn_validate_submit_time"><?php echo htmlspecialchars(__('Validate submit_time', 'contact-form-7-to-database-extension')); ?></button>
+                <button id="btn_validate_submit_time" class="button"><?php echo htmlspecialchars(__('Validate submit_time', 'contact-form-7-to-database-extension')); ?></button>
                 <a target="_blank" href="http://cfdbplugin.com/?page_id=553"><?php echo htmlspecialchars(__('Formats', 'contact-form-7-to-database-extension')); ?></a>
             </span>
             <br/>
@@ -1383,7 +1385,7 @@ class CFDBViewShortCodeBuilder extends CFDBView {
                 <label for="orderby_cntl"><?php echo htmlspecialchars(__('orderby', 'contact-form-7-to-database-extension')) ?></label>
                 <a target="_docs" href="http://cfdbplugin.com/?page_id=89#orderby"><img alt="?" src="<?php echo $infoImg ?>"/></a>
             </div>
-            <select name="add_orderby" id="add_orderby"></select><button id="btn_orderby" placeholder="<?php echo htmlspecialchars(__('field', 'contact-form-7-to-database-extension')) ?>">&raquo;</button>
+            <select name="add_orderby" id="add_orderby"></select><button id="btn_orderby" class="button" placeholder="<?php echo htmlspecialchars(__('field', 'contact-form-7-to-database-extension')) ?>">&raquo;</button>
             <input name="orderby_cntl" id="orderby_cntl" type="text" size="100" placeholder="<?php echo htmlspecialchars(__('field1,field2,field3', 'contact-form-7-to-database-extension')) ?>"/>
             <select id="orderbydir_cntl" name="orderbydir_cntl">
                 <option value=""></option>
@@ -1409,7 +1411,7 @@ class CFDBViewShortCodeBuilder extends CFDBView {
             <select name="add_headers" id="add_headers"></select>
             <?php echo htmlspecialchars(__('display as', 'contact-form-7-to-database-extension')); ?>
             <input name="headers_val" id="headers_val" type="text" size="20" placeholder="<?php echo htmlspecialchars(__('display value', 'contact-form-7-to-database-extension')); ?>"/>
-            <button id="btn_headers">&raquo;</button>
+            <button id="btn_headers" class="button">&raquo;</button>
             <br/>
             <input name="headers_cntl" id="headers_cntl" type="text" size="100" placeholder="<?php echo htmlspecialchars(__('field1=Display Name 1,field2=Display Name 2', 'contact-form-7-to-database-extension')); ?>"/>
         </div>
@@ -1458,7 +1460,7 @@ class CFDBViewShortCodeBuilder extends CFDBView {
                 <label for="editcolumns_cntl"><?php echo htmlspecialchars(__('editcolumns', 'contact-form-7-to-database-extension')) ?></label>
                 <a target="_docs" href="http://cfdbplugin.com/?page_id=91#editcolumns"><img alt="?" src="<?php echo $infoImg ?>"/></a>
             </div>
-            <select name="add_editcolumns" id="add_editcolumns"></select><button id="btn_editcolumns" placeholder="<?php echo htmlspecialchars(__('field', 'contact-form-7-to-database-extension')) ?>">&raquo;</button>
+            <select name="add_editcolumns" id="add_editcolumns"></select><button id="btn_editcolumns" class="button" placeholder="<?php echo htmlspecialchars(__('field', 'contact-form-7-to-database-extension')) ?>">&raquo;</button>
             <input name="editcolumns_cntl" id="editcolumns_cntl" type="text" size="100" placeholder="<?php echo htmlspecialchars(__('field1,field2,field3', 'contact-form-7-to-database-extension')) ?>"/>
         </div>
         <div>
@@ -1556,7 +1558,7 @@ class CFDBViewShortCodeBuilder extends CFDBView {
                 <label for="content_cntl"><?php echo htmlspecialchars(__('Template', 'contact-form-7-to-database-extension')) ?></label>
                 <a target="_docs" href="http://cfdbplugin.com/?page_id=284#template"><img alt="?" src="<?php echo $infoImg ?>"/></a>
             </div>
-            <select name="add_content" id="add_content"></select><button id="btn_content">&raquo;</button><br/>
+            <select name="add_content" id="add_content"></select><button id="btn_content" class="button">&raquo;</button><br/>
             <textarea name="content_cntl" id="content_cntl" cols="100" rows="10" placeholder="<?php echo htmlspecialchars(__('Per-entry HTML using ${field name} variables', 'contact-form-7-to-database-extension')); ?>"></textarea>
         </div>
     </div>
@@ -1645,7 +1647,7 @@ class CFDBViewShortCodeBuilder extends CFDBView {
             </div>
             <select name="add_trans" id="add_trans"></select>
             <input name="trans_val" id="trans_val" type="text" size="20" placeholder="<?php echo htmlspecialchars(__('PHP function or class', 'contact-form-7-to-database-extension')) ?>"/>
-            <button id="btn_trans">&raquo;</button>
+            <button id="btn_trans" class="button">&raquo;</button>
             <br/>
             <input name="trans_cntl" id="trans_cntl" type="text" size="100" placeholder="<?php echo htmlspecialchars(__('transform expression', 'contact-form-7-to-database-extension')) ?>"/>
         </div>
@@ -1676,11 +1678,13 @@ class CFDBViewShortCodeBuilder extends CFDBView {
                 <option value="===">===</option>
                 <option value="!==">!==</option>
                 <option value="~~">~~</option>
+                <option value="[in]">[in]</option>
+                <option value="[!in]">[!in]</option>
             </select>
             <input name="tfilter_val" id="tfilter_val" type="text" size="20" placeholder="<?php echo htmlspecialchars(__('value', 'contact-form-7-to-database-extension')) ?>"/>
-            <button id="btn_tfilter">&raquo;</button>
+            <button id="btn_tfilter" class="button">&raquo;</button>
             <span id="span_validate_submit_time" style="display:none;">
-                <button id="btn_validate_submit_time"><?php echo htmlspecialchars(__('Validate submit_time', 'contact-form-7-to-database-extension')); ?></button>
+                <button id="btn_validate_submit_time" class="button"><?php echo htmlspecialchars(__('Validate submit_time', 'contact-form-7-to-database-extension')); ?></button>
                 <a target="_blank" href="http://cfdbplugin.com/?page_id=553"><?php echo htmlspecialchars(__('Formats', 'contact-form-7-to-database-extension')); ?></a>
             </span>
             <br/>
@@ -1699,7 +1703,7 @@ class CFDBViewShortCodeBuilder extends CFDBView {
                 <label for="torderby_cntl"><?php echo htmlspecialchars(__('torderby', 'contact-form-7-to-database-extension')) ?></label>
                 <a target="_docs" href="http://cfdbplugin.com/?page_id=1118#torderby"><img alt="?" src="<?php echo $infoImg ?>"/></a>
             </div>
-            <select name="add_torderby" id="add_torderby"></select><button id="btn_torderby" placeholder="<?php echo htmlspecialchars(__('field', 'contact-form-7-to-database-extension')) ?>">&raquo;</button>
+            <select name="add_torderby" id="add_torderby"></select><button id="btn_torderby" class="button" placeholder="<?php echo htmlspecialchars(__('field', 'contact-form-7-to-database-extension')) ?>">&raquo;</button>
             <input name="torderby_cntl" id="torderby_cntl" type="text" size="100" placeholder="<?php echo htmlspecialchars(__('field1,field2,field3', 'contact-form-7-to-database-extension')) ?>"/>
             <select id="torderbydir_cntl" name="torderbydir_cntl">
                 <option value=""></option>

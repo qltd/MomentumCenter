@@ -503,7 +503,7 @@ class acf_field_buckets extends acf_field {
                 </div>
             </li>
             <li style="width:50%;">
-                <a href="<?php echo bloginfo('url'); ?>/wp-content/plugins/buckets/admin/add_bucket.php?post_type=buckets&TB_iframe=1" title="Add New Bucket" class="button button-primary new-bucket-button thickbox">Add New Bucket</a>
+                <a href="<?php echo bloginfo('url'); ?>/wp-content/plugins/buckets/admin/add_bucket.php?TB_iframe=1" title="Add New Bucket" class="button button-primary new-bucket-button thickbox">Add New Bucket</a>
             </li>
         </ul>
     </div>

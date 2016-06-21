@@ -18,7 +18,7 @@ class acf_field_buckets extends acf_field
 		$this->label = __("Buckets Sidebar",'acf');
 		$this->category = __("Relational",'acf');
 		$this->defaults = array(
-			'post_type'			=>	'buckets',
+			'post_type'			=>	array('buckets'),
 			'max' 				=>	'',
 			'taxonomy' 			=>	array('all'),
 			'filters'			=>	array('search'),
@@ -29,7 +29,6 @@ class acf_field_buckets extends acf_field
 			'max'		=> __("Maximum values reached ( {max} values )",'acf'),
 			'tmpl_li'	=> '
 							<li>
-								<span class="edit" data-url="<?php echo get_admin_url() ?>post.php?post=<%= post_id %>&action=edit&popup=true&TB_iframe=1">Edit</span>
 								<a href="#" data-post_id="<%= post_id %>"><%= title %><span class="acf-button-remove"></span></a>
 								<input type="hidden" name="<%= name %>[]" value="<%= post_id %>" />
 							</li>
@@ -66,7 +65,7 @@ class acf_field_buckets extends acf_field
 		// validate post_type
 		if( !$field['post_type'] || !is_array($field['post_type']) || in_array('', $field['post_type']) )
 		{
-			$field['post_type'] = array( 'all' );
+			$field['post_type'] = array( 'buckets' );
 		}
 
 
@@ -187,11 +186,11 @@ class acf_field_buckets extends acf_field
 		}
 
 
-		// attachment doesn't work if it is the only item in an array???
-		if( is_array($options['post_type']) && count($options['post_type']) == 1 )
-		{
-			$options['post_type'] = $options['post_type'][0];
-		}
+		// // attachment doesn't work if it is the only item in an array???
+		// if( is_array($options['post_type']) && count($options['post_type']) == 1 )
+		// {
+		// 	$options['post_type'] = $options['post_type'][0];
+		// }
 
 
 		// create tax queries
@@ -328,7 +327,7 @@ class acf_field_buckets extends acf_field
 
 
 			// update html
-			$r['html'] .= '<li><a href="' . get_permalink() . '" data-post_id="' . get_the_ID() . '">' . $title .  '<span class="acf-button-add"></span></a></li>';
+			$r['html'] .= '<li><span class="edit v4" data-url="' . get_bloginfo('url') . '/wp-content/plugins/buckets/admin/add_bucket.php?bucket_id=' . $post->ID . '&TB_iframe=1"><span class="dashicons dashicons-edit"></span></span><a href="' . get_permalink() . '" data-post_id="' . get_the_ID() . '">' . $title .  '<span class="acf-button-add"></span></a></li>';
 		}
 
 
@@ -409,7 +408,7 @@ class acf_field_buckets extends acf_field
 		}
 
 		?>
-<div class="acf_relationship acf_buckets<?php echo $class; ?>"<?php foreach( $attributes as $k => $v ): ?> data-<?php echo $k; ?>="<?php echo $v; ?>"<?php endforeach; ?>>
+<div class="acf_buckets<?php echo $class; ?> v4"<?php foreach( $attributes as $k => $v ): ?> data-<?php echo $k; ?>="<?php echo $v; ?>"<?php endforeach; ?>>
 
 
 	<!-- Hidden Blank default value -->
@@ -525,9 +524,7 @@ class acf_field_buckets extends acf_field
 				$title = apply_filters('acf/fields/buckets/result/name=' . $field['name'] , $title, $p, $field, $post);
 				$title = apply_filters('acf/fields/buckets/result/key=' . $field['key'], $title, $p, $field, $post);
 
-
 				echo '<li>
-					<span class="edit" data-url="' . get_admin_url() . 'post.php?post=' . $p->ID . '&action=edit&popup=true&TB_iframe=1">Edit</span>
 					<a href="' . get_permalink($p->ID) . '" class="" data-post_id="' . $p->ID . '">' . $title . '<span class="acf-button-remove"></span></a>
 					<input type="hidden" name="' . $field['name'] . '[]" value="' . $p->ID . '" />
 				</li>';
@@ -540,7 +537,7 @@ class acf_field_buckets extends acf_field
 		</ul>
 	</div>
 	<!-- / Right List -->
-	<a href="<?php echo bloginfo('url'); ?>/wp-admin/post-new.php?post_type=buckets&popup=true&TB_iframe=1" title="New Bucket" class="button-primary new-bucket thickbox">Add New</a>
+	<a href="<?php echo bloginfo('url'); ?>/wp-content/plugins/buckets/admin/add_bucket.php?post_type=buckets&TB_iframe=1" title="Add New Bucket" class="button button-primary new-bucket thickbox">Add New Bucket</a>
 	<div style="clear: both;"></div>
 </div>
 		<?php

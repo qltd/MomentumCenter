@@ -1,6 +1,6 @@
 <?php
 /*
-    "Contact Form to Database" Copyright (C) 2011-2015 Michael Simpson  (email : michael.d.simpson@gmail.com)
+    "Contact Form to Database" Copyright (C) 2011-2016 Michael Simpson  (email : michael.d.simpson@gmail.com)
 
     This file is part of Contact Form to Database.
 
@@ -49,54 +49,86 @@ class CF7DBPlugin extends CF7DBPluginLifeCycle implements CFDBDateFormatter {
 
     public function getOptionMetaData() {
         return array(
-            //'_version' => array('Installed Version'), // For testing upgrades
-            //'Donated' => array(__('I have donated to this plugin', 'contact-form-7-to-database-extension'), 'false', 'true'),
-            'IntegrateWithCF7' => array(__('Capture form submissions from Contact Form 7 Plugin', 'contact-form-7-to-database-extension'), 'true', 'false'),
-            'IntegrateWithFSCF' => array(__('Capture form submissions from Fast Secure Contact Form Plugin', 'contact-form-7-to-database-extension'), 'true', 'false'),
-            'IntegrateWithJetPackContactForm' => array(__('Capture form submissions from JetPack Contact Form', 'contact-form-7-to-database-extension'), 'true', 'false'),
-            'IntegrateWithGravityForms' => array(__('Capture form submissions from Gravity Forms', 'contact-form-7-to-database-extension'), 'true', 'false'),
-            'IntegrateWithFormidableForms' => array(__('Capture form submissions from Formidable Forms', 'contact-form-7-to-database-extension'), 'true', 'false'),
-            'IntegrateWithWrContactForms' => array(__('Capture form submissions from WR ContactForm', 'contact-form-7-to-database-extension'), 'true', 'false'),
-            'IntegrateWithQuform' => array(__('Capture form submissions from Quform', 'contact-form-7-to-database-extension'), 'true', 'false'),
-            'IntegrateWithNinjaForms' => array(__('Capture form submissions from Ninja Forms', 'contact-form-7-to-database-extension'), 'true', 'false'),
-            'IntegrateWithCalderaForms' => array(__('Capture form submissions from Caldera Forms', 'contact-form-7-to-database-extension'), 'true', 'false'),
-            'IntegrateWithEnfoldThemForms' => array(__('Capture form submissions from Enfold Theme', 'contact-form-7-to-database-extension'), 'true', 'false'),
-            'IntegrateWithCFormsII' => array(__('Capture form submissions from CformsII', 'contact-form-7-to-database-extension'), 'true', 'false'),
-            'IntegrateWithFormCraft' => array(__('Capture form submissions from FormCraft Premium', 'contact-form-7-to-database-extension'), 'true', 'false'),
-            'IntegrateWithVerySimpleContactForm' => array(__('Capture form submissions from Very Simple Contact Form', 'contact-form-7-to-database-extension'), 'true', 'false'),
-            'CanSeeSubmitData' => array(__('Can See Submission data', 'contact-form-7-to-database-extension'),
-                                        'Administrator', 'Editor', 'Author', 'Contributor', 'Subscriber', 'Anyone'),
-            'HideAdminPanelFromNonAdmins' => array(__('Allow only Administrators to see CFDB administration screens', 'contact-form-7-to-database-extension'), 'false', 'true'),
-            'CanSeeSubmitDataViaShortcode' => array(__('Can See Submission when using shortcodes', 'contact-form-7-to-database-extension'),
-                                                    'Administrator', 'Editor', 'Author', 'Contributor', 'Subscriber', 'Anyone'),
-            'CanChangeSubmitData' => array(__('Can Edit/Delete Submission data', 'contact-form-7-to-database-extension'),
-                                           'Administrator', 'Editor', 'Author', 'Contributor', 'Subscriber', 'Anyone'),
-            'GenerateSubmitTimeInCF7Email' => array(__('Generate [submit_time] tag for Contact Form 7 email', 'contact-form-7-to-database-extension'), 'false', 'true'),
-            'FunctionsInShortCodes' => array(__('Allow Any Function in Short Codes', 'contact-form-7-to-database-extension') .
-                    ' <a target="_blank" href="http://cfdbplugin.com/?page_id=1073">' . __('(Creates a security hole)', 'contact-form-7-to-database-extension') . '</a>', 'false', 'true'),
-            'AllowRSS' => array(__('Allow RSS URLs', 'contact-form-7-to-database-extension') .
-                    ' <a target="_blank" href="http://cfdbplugin.com/?p=918">' . __('(Creates a security hole)', 'contact-form-7-to-database-extension') . '</a>', 'false', 'true'),
-            'Timezone' => array(__('Timezone to capture Submit Time. Blank will use WordPress Timezone setting. <a target="_blank" href="http://www.php.net/manual/en/timezones.php">Options</a>', 'contact-form-7-to-database-extension')),
-            'MaxRows' => array(__('Maximum number of rows to retrieve from the DB for the Admin display', 'contact-form-7-to-database-extension')),
-            'MaxVisibleRows' => array(__('#Rows (of maximum above) visible in the Admin datatable', 'contact-form-7-to-database-extension')),
-            'HorizontalScroll' => array(__('Use fixed width in Admin datatable', 'contact-form-7-to-database-extension'), 'true', 'false'),
-            'UseDataTablesJS' => array(__('Use Javascript-enabled tables in Admin Database page', 'contact-form-7-to-database-extension'), 'true', 'false'),
-            'ShowLineBreaksInDataTable' => array(__('Show line breaks in submitted data table', 'contact-form-7-to-database-extension'), 'true', 'false'),
-            'UseCustomDateTimeFormat' => array(__('Use Custom Date-Time Display Format (below)', 'contact-form-7-to-database-extension'), 'true', 'false'),
-            'SubmitDateTimeFormat' => array('<a target="_blank" href="http://php.net/manual/en/function.date.php">' . __('Date-Time Display Format', 'contact-form-7-to-database-extension') . '</a>'),
-            'ShowFileUrlsInExport' => array(__('Export URLs instead of file names for uploaded files', 'contact-form-7-to-database-extension'), 'false', 'true'),
-            'NoSaveFields' => array(__('Do not save <u>fields</u> in DB named (comma-separated list, no spaces)', 'contact-form-7-to-database-extension')),
-            'NoSaveForms' => array(__('Do not save <u>forms</u> in DB named (comma-separated list, no spaces)', 'contact-form-7-to-database-extension')),
-            'SaveCookieData' => array(__('Save Cookie Data with Form Submissions', 'contact-form-7-to-database-extension'), 'false', 'true'),
-            'SaveCookieNames' => array(__('Save only cookies in DB named (comma-separated list, no spaces, and above option must be set to true)', 'contact-form-7-to-database-extension')),
-            'ShowQuery' => array(__('Show the query used to display results', 'contact-form-7-to-database-extension'), 'false', 'true'),
-            'ErrorOutput' => array(__('Error output file or email address', 'contact-form-7-to-database-extension')),
-            'DropOnUninstall' => array(__('Drop this plugin\'s Database table on uninstall', 'contact-form-7-to-database-extension'), 'false', 'true'),
+            // Integrations
+                'IntegrateWithCF7' => array(__('Capture form submissions from Contact Form 7 Plugin', 'contact-form-7-to-database-extension'), 'true', 'false'),
+                'IntegrateWithCF7SavePageTitle' => array(__('Save Page Title from Contact Form 7 submissions', 'contact-form-7-to-database-extension'), 'false', 'true'),
+                'IntegrateWithCF7SavePageUrl' => array(__('Save Page URL from Contact Form 7 submissions', 'contact-form-7-to-database-extension'), 'false', 'true'),
+                'GenerateSubmitTimeInCF7Email' => array(__('Generate [submit_time] tag for Contact Form 7 email', 'contact-form-7-to-database-extension'), 'false', 'true'),
+                'IntegrateWithFSCF' => array(__('Capture form submissions from Fast Secure Contact Form Plugin', 'contact-form-7-to-database-extension'), 'true', 'false'),
+                'IntegrateWithJetPackContactForm' => array(__('Capture form submissions from JetPack Contact Form', 'contact-form-7-to-database-extension'), 'true', 'false'),
+                'IntegrateWithGravityForms' => array(__('Capture form submissions from Gravity Forms', 'contact-form-7-to-database-extension'), 'true', 'false'),
+                'IntegrateWithFormidableForms' => array(__('Capture form submissions from Formidable Forms', 'contact-form-7-to-database-extension'), 'true', 'false'),
+                'IntegrateWithWrContactForms' => array(__('Capture form submissions from WR ContactForm', 'contact-form-7-to-database-extension'), 'true', 'false'),
+                'IntegrateWithQuform' => array(__('Capture form submissions from Quform', 'contact-form-7-to-database-extension'), 'true', 'false'),
+                'IntegrateWithNinjaForms' => array(__('Capture form submissions from Ninja Forms', 'contact-form-7-to-database-extension'), 'true', 'false'),
+                'IntegrateWithCalderaForms' => array(__('Capture form submissions from Caldera Forms', 'contact-form-7-to-database-extension'), 'true', 'false'),
+                'IntegrateWithEnfoldThemForms' => array(__('Capture form submissions from Enfold Theme', 'contact-form-7-to-database-extension'), 'true', 'false'),
+                'IntegrateWithCFormsII' => array(__('Capture form submissions from CformsII', 'contact-form-7-to-database-extension'), 'true', 'false'),
+                'IntegrateWithFormCraft' => array(__('Capture form submissions from FormCraft Premium', 'contact-form-7-to-database-extension'), 'true', 'false'),
+                'IntegrateWithVerySimpleContactForm' => array(__('Capture form submissions from Very Simple Contact Form and Very Simple Signup Form', 'contact-form-7-to-database-extension'), 'true', 'false'),
+
+            // Security
+                'CanSeeSubmitData' => array(__('Can See Submission data', 'contact-form-7-to-database-extension'),
+                        'Administrator', 'Editor', 'Author', 'Contributor', 'Subscriber', 'Anyone'),
+                'CanSeeSubmitDataViaShortcode' => array(__('Can See Submission when using shortcodes', 'contact-form-7-to-database-extension'),
+                        'Administrator', 'Editor', 'Author', 'Contributor', 'Subscriber', 'Anyone'),
+                'CanChangeSubmitData' => array(__('Can Edit/Delete Submission data', 'contact-form-7-to-database-extension'),
+                        'Administrator', 'Editor', 'Author', 'Contributor', 'Subscriber', 'Anyone'),
+                'FunctionsInShortCodes' => array(__('Allow Any Function in Short Codes', 'contact-form-7-to-database-extension') .
+                        ' <a target="_blank" href="http://cfdbplugin.com/?page_id=1073">' . __('(Creates a security hole)', 'contact-form-7-to-database-extension') . '</a>', 'false', 'true'),
+                'HideAdminPanelFromNonAdmins' => array(__('Allow only Administrators to see CFDB administration screens', 'contact-form-7-to-database-extension'), 'true', 'false'),
+                'AllowRSS' => array(__('Allow RSS URLs', 'contact-form-7-to-database-extension') .
+                        ' <a target="_blank" href="http://cfdbplugin.com/?p=918">' . __('(Creates a security hole)', 'contact-form-7-to-database-extension') . '</a>', 'false', 'true'),
+
+            // Saving
+                'Timezone' => array(__('Timezone to capture Submit Time. Blank will use WordPress Timezone setting. <a target="_blank" href="http://www.php.net/manual/en/timezones.php">Options</a>', 'contact-form-7-to-database-extension')),
+                'NoSaveFields' => array(__('Do not save <u>fields</u> in DB named (comma-separated list, no spaces)', 'contact-form-7-to-database-extension')),
+                'NoSaveForms' => array(__('Do not save <u>forms</u> in DB named (comma-separated list, no spaces)', 'contact-form-7-to-database-extension')),
+                'SaveCookieData' => array(__('Save Cookie Data with Form Submissions', 'contact-form-7-to-database-extension'), 'false', 'true'),
+                'SaveCookieNames' => array(__('Save only cookies in DB named (comma-separated list, no spaces, and above option must be set to true)', 'contact-form-7-to-database-extension')),
+
+            // Export
+                'UseCustomDateTimeFormat' => array(__('Use Custom Date-Time Display Format (below)', 'contact-form-7-to-database-extension'), 'true', 'false'),
+                'SubmitDateTimeFormat' => array('<a target="_blank" href="http://php.net/manual/en/function.date.php">' . __('Date-Time Display Format', 'contact-form-7-to-database-extension') . '</a>'),
+                'ShowFileUrlsInExport' => array(__('Export URLs instead of file names for uploaded files', 'contact-form-7-to-database-extension'), 'false', 'true'),
+
+            // Admin View
+                'MaxRows' => array(__('Maximum number of rows to retrieve from the DB for the Admin display', 'contact-form-7-to-database-extension')),
+                'MaxVisibleRows' => array(__('#Rows (of maximum above) visible in the Admin datatable', 'contact-form-7-to-database-extension')),
+                'HorizontalScroll' => array(__('Use fixed width in Admin datatable', 'contact-form-7-to-database-extension'), 'true', 'false'),
+                'UseDataTablesJS' => array(__('Use Javascript-enabled tables in Admin Database page', 'contact-form-7-to-database-extension'), 'true', 'false'),
+                'ShowLineBreaksInDataTable' => array(__('Show line breaks in submitted data table', 'contact-form-7-to-database-extension'), 'true', 'false'),
+                'ShowQuery' => array(__('Show the query used to display results', 'contact-form-7-to-database-extension'), 'false', 'true'),
+
+            // System
+                'ErrorOutput' => array(__('Error output file or email address', 'contact-form-7-to-database-extension')),
+                'DropOnUninstall' => array(__('Drop this plugin\'s Database table on uninstall', 'contact-form-7-to-database-extension'), 'false', 'true'),
             //'SubmitTableNameOverride' => array(__('Use this table to store submission data rather than the default (leave blank for default)', 'contact-form-7-to-database-extension'))
+            //'_version' => array('Installed Version'), // For testing upgrades
         );
     }
 
-    public function getOptionValueI18nString($optionValue) {
+    public function settingsPage() {
+        if (!current_user_can('manage_options')) {
+            wp_die(__('You do not have sufficient permissions to access this page.', 'community-yard-sale'));
+        }
+
+        $optionMetaData = $this->getOptionMetaData();
+
+        // Save Posted Options
+        if ($optionMetaData != null) {
+            foreach ($optionMetaData as $aOptionKey => $aOptionMeta) {
+                if (isset($_POST[$aOptionKey])) {
+                    $this->updateOption($aOptionKey, $_POST[$aOptionKey]);
+                }
+            }
+        }
+        require_once('CFDBViewOptions.php');
+        $optionsView = new CFDBViewOptions();
+        $optionsView->display($this);
+    }
+
+        public function getOptionValueI18nString($optionValue) {
         switch ($optionValue) {
             case 'true':
                 return __('true', 'contact-form-7-to-database-extension');
@@ -722,7 +754,12 @@ class CF7DBPlugin extends CF7DBPluginLifeCycle implements CFDBDateFormatter {
      */
     public function saveFormData($cf7) {
         try {
-            if (!empty($cf7->posted_data['submit_time']) && is_numeric($cf7->posted_data['submit_time'])) {
+            if (
+                    !empty($cf7->posted_data['submit_time']) &&
+                    (is_numeric($cf7->posted_data['submit_time']) ||
+                            // Looks like is_numeric may fail on decimal '.' when ',' is the localization
+                            preg_match('/^\d+\.?\d*$/', $cf7->posted_data['submit_time']))
+            ) {
                 $time = $cf7->posted_data['submit_time'];
                 unset($cf7->posted_data['submit_time']);
                 unset($cf7->posted_data['submit_url']);
@@ -939,7 +976,7 @@ class CF7DBPlugin extends CF7DBPluginLifeCycle implements CFDBDateFormatter {
     public function createAdminMenu() {
         $displayName = $this->getPluginDisplayName();
 
-        $hideFromNonAdmins = $this->getOption('HideAdminPanelFromNonAdmins', 'false', true) != 'false';
+        $hideFromNonAdmins = $this->getOption('HideAdminPanelFromNonAdmins', 'true', true) != 'false';
         $roleAllowed = 'Administrator';
         if (!$hideFromNonAdmins) {
             $roleAllowed = $this->getRoleOption('CanSeeSubmitData');
@@ -1019,11 +1056,20 @@ class CF7DBPlugin extends CF7DBPluginLifeCycle implements CFDBDateFormatter {
                 array(&$this, 'showShortImportCsvPage'));
         }
 
+
+        // Needed for the Settings Page
+        $settingsSlug = $this->getSettingsSlug();
+        if (strpos($_SERVER['REQUEST_URI'], $settingsSlug) !== false) {
+            require_once('CFDBViewOptions.php');
+            $optionsView = new CFDBViewOptions($this);
+            add_action('admin_enqueue_scripts', array(&$optionsView, 'enqueueSettingsPageScripts'));
+        }
+
         add_submenu_page($menuSlug,
                          $displayName . ' Options',
                          __('Options', 'contact-form-7-to-database-extension'),
                          'manage_options',
-                         get_class($this) . 'Settings',
+                         $settingsSlug,
                          array(&$this, 'settingsPage'));
 
 
@@ -1078,11 +1124,14 @@ class CF7DBPlugin extends CF7DBPluginLifeCycle implements CFDBDateFormatter {
             }
 
             ?>
-            <form action="<?php echo get_admin_url() . 'admin.php?page=' . $this->getDBPageSlug() . "&form_name=" . urlencode($form) ?>" method="post">
+            <div class="wrap">
+            <form action="<?php echo get_admin_url() . 'admin.php?page=' . $this->getDBPageSlug() . "&form_name=" . urlencode($form) ?>"
+                  method="post">
                 <input name="form_name" type="hidden" value="<?php echo htmlspecialchars($form) ?>"/>
                 <input name="<?php echo htmlspecialchars($submitTime) ?>" type="hidden" value="row"/>
                 <?php wp_nonce_field(); ?>
-                <button id="delete" name="cfdbdel" onclick="this.form.submit();"><?php echo htmlspecialchars(__('Delete', 'contact-form-7-to-database-extension')); ?></button>
+                <button id="delete" name="cfdbdel" class="button"
+                        onclick="this.form.submit();"><?php echo htmlspecialchars(__('Delete', 'contact-form-7-to-database-extension')); ?></button>
             </form>
             <?php
             $exp->export($form, array('submit_time' => $submitTime, 'filelinks' => 'link'));
@@ -1091,6 +1140,9 @@ class CF7DBPlugin extends CF7DBPluginLifeCycle implements CFDBDateFormatter {
             $view = new CFDBViewWhatsInDB;
             $view->display($this);
         }
+        ?>
+        </div>
+        <?php
     }
 
     static $checkForCustomDateFormat = true;

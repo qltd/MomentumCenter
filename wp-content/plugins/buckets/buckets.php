@@ -4,7 +4,7 @@ Plugin Name: Buckets
 Plugin URI: http://www.matthewrestorff.com
 Description: A Widget Alternative. Add reusable content inside of content. On a per page basis.
 Author: Matthew Restorff
-Version: 0.3.5
+Version: 0.3.7
 Author URI: http://www.matthewrestorff.com
 */
 
@@ -15,7 +15,7 @@ Author URI: http://www.matthewrestorff.com
 *	@author Matthew Restorff
 *
 *-------------------------------------------------------------------------------------*/
-$bucket_version = '0.3.5';
+$bucket_version = '0.3.7';
 add_action('init', 'buckets_init');
 add_action('admin_head', 'buckets_admin_head');
 add_shortcode('bucket', 'buckets_shortcode');
@@ -190,6 +190,43 @@ if (is_plugin_active('advanced-custom-fields-pro/acf.php')) {
 
 /*--------------------------------------------------------------------------------------
 *
+*   buckets_pre_save_post
+*
+*   @author Matthew Restorff
+*
+*-------------------------------------------------------------------------------------*/
+function buckets_pre_save_post( $post_id ) {
+
+    // check if this is to be a new post
+    if( $post_id != 'new_post' )
+    {
+        return $post_id;
+    }
+
+    $title = (isset($_POST['bucket_title']) && $_POST['bucket_title'] != '') ? $_POST['bucket_title'] : 'New Bucket';
+
+    // Create a new post
+    $post = array(
+        'post_status'  => 'publish',
+        'post_title'  => $title,
+        'post_type'  => 'buckets',
+    );
+
+    // insert the post
+    $post_id = wp_insert_post( $post );
+
+    // update $_POST['return']
+    $_POST['return'] = add_query_arg( array('post_id' => $post_id), $_POST['return'] );
+
+    // return the new ID
+    return $post_id;
+}
+
+add_filter('acf/pre_save_post' , 'buckets_pre_save_post' );
+
+
+/*--------------------------------------------------------------------------------------
+*
 *	create_tinymce_button
 *
 *	@author Matthew Restorff
@@ -225,6 +262,7 @@ function bucket_register_tinymce_button($buttons)
     return $buttons;
 }
 
+
 /*--------------------------------------------------------------------------------------
 *
 *	create_field_group
@@ -232,7 +270,6 @@ function bucket_register_tinymce_button($buttons)
 *	@author Matthew Restorff
 *
 *-------------------------------------------------------------------------------------*/
-
 function create_bucket_field_groups($acf_version)
 {
     // ACF Pro v5+
@@ -367,23 +404,23 @@ function create_bucket_field_groups($acf_version)
 
 function buckets_admin_head()
 {
-    global $bucket_version;
+    global $bucket_version, $acf_version;
 
     if (isset($GLOBALS['post_type']) && $GLOBALS['post_type'] == 'buckets') {
         wp_enqueue_style('buckets', plugins_url('', __FILE__).'/css/buckets.css?v='.$bucket_version);
     }
-    if ($GLOBALS['pagenow'] == 'post.php') {
-        wp_enqueue_style('bucket-field', plugins_url('', __FILE__).'/css/bucket_field.css?v='.$bucket_version);
+
+    if ($GLOBALS['pagenow'] == 'post.php' || (isset($GLOBALS['_GET']['page']) && $GLOBALS['_GET']['page'] == 'acf-options')) {
+        wp_enqueue_style('bucket-field', plugins_url('', __FILE__).'/css/bucket_field.css?v='.$bucket_version, array('thickbox'));
         wp_enqueue_script('buckets', plugins_url('', __FILE__).'/js/buckets.js?v='.$bucket_version);
+    }
+    if (!empty($acf_version)){
+        wp_enqueue_script('bucket-field-script', plugins_url('', __FILE__).'/js/bucket_field_v' . $acf_version . '.js?v='.$bucket_version, array('jquery-ui-sortable'));
     }
 
     // The WP Thickbox dimensions are hard coded into the media-upload. With this we strip it and make our own.
     wp_deregister_script('media-upload');
-    wp_enqueue_script(
-        'media-upload',
-        plugins_url('', __FILE__).'/js/media-upload.js?v='.$bucket_version,
-        array('thickbox')
-    );
+    wp_enqueue_script('media-upload',plugins_url('', __FILE__).'/js/media-upload.js?v='.$bucket_version,array('thickbox'));
 
     // Create TinyMCE Button
     create_tinymce_button();
@@ -463,7 +500,7 @@ function get_bucket($bucket_id)
 
     //If ACF is Active perform some wizardry
     if ((is_plugin_active('advanced-custom-fields/acf.php') && is_plugin_active('acf-flexible-content/acf-flexible-content.php')) || is_plugin_active('advanced-custom-fields-pro/acf.php')) {
-        while (has_sub_field('buckets', $bucket_id)) {
+        while ( have_rows('buckets', $bucket_id) ) { the_row();
             ob_start();
             $layout = get_row_layout();
 
