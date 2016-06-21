@@ -1,0 +1,8 @@
+[17-May-2016 12:37:34 America/Detroit] PHP Fatal error:  Call to undefined function add_action() in /home/momentum/public_html/wp-content/plugins/contact-form-7/includes/upgrade.php on line 3
+[17-May-2016 12:37:37 America/Detroit] PHP Fatal error:  Call to undefined function add_action() in /home/momentum/public_html/wp-content/plugins/contact-form-7/includes/mail.php on line 171
+[17-May-2016 12:37:40 America/Detroit] PHP Fatal error:  Call to undefined function add_action() in /home/momentum/public_html/wp-content/plugins/contact-form-7/includes/controller.php on line 3
+[17-May-2016 12:38:58 America/Detroit] PHP Fatal error:  Call to undefined function add_filter() in /home/momentum/public_html/wp-content/plugins/contact-form-7/includes/capabilities.php on line 3
+[18-Jun-2016 16:11:09 America/Detroit] PHP Fatal error:  Call to undefined function add_action() in /home/momentum/public_html/wp-content/plugins/contact-form-7/includes/upgrade.php on line 3
+[18-Jun-2016 16:11:10 America/Detroit] PHP Fatal error:  Call to undefined function add_filter() in /home/momentum/public_html/wp-content/plugins/contact-form-7/includes/capabilities.php on line 3
+[18-Jun-2016 16:11:13 America/Detroit] PHP Fatal error:  Call to undefined function add_action() in /home/momentum/public_html/wp-content/plugins/contact-form-7/includes/mail.php on line 171
+[18-Jun-2016 16:11:16 America/Detroit] PHP Fatal error:  Call to undefined function add_action() in /home/momentum/public_html/wp-content/plugins/contact-form-7/includes/controller.php on line 3

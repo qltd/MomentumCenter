@@ -1,0 +1,11 @@
+.new-bucket-button { float: right; margin: 6px 6px 0 0 !important; }
+
+.acf-buckets .choices .list li { position: relative; }
+.acf-buckets .choices .list li .edit { display: none; position: absolute; z-index: 2; right: 5px; top:3px; padding: 1px; color: #fff; cursor: pointer; font-size: 16px; width: 25px; text-align: center; border: 1px solid #fff; border-radius: 5px; }
+.acf-buckets .choices .list li .edit:hover { color: #2ea2cc; border-color: #2ea2cc; }
+.acf-buckets .choices .list li .edit .dashicons { font-size: 20px; }
+.acf-buckets .choices .list li:hover .edit { display: inline-block; }
+
+.acf-buckets .acf-icon.small.dark { color: #fff; border-radius: 5px; background: none; border: 1px solid #fff; }
+.acf-buckets .acf-icon.small.dark:hover { color: #333; border-color: #333; }
+.acf-buckets .acf-icon.small.dark span.dashicons { margin-left: -1px; }

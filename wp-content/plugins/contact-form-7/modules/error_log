@@ -1,0 +1,8 @@
+[17-May-2016 12:38:34 America/Detroit] PHP Fatal error:  Call to undefined function add_action() in /home/momentum/public_html/wp-content/plugins/contact-form-7/modules/checkbox.php on line 8
+[17-May-2016 12:38:40 America/Detroit] PHP Fatal error:  Call to undefined function add_action() in /home/momentum/public_html/wp-content/plugins/contact-form-7/modules/really-simple-captcha.php on line 8
+[17-May-2016 12:38:43 America/Detroit] PHP Fatal error:  Call to undefined function add_action() in /home/momentum/public_html/wp-content/plugins/contact-form-7/modules/date.php on line 9
+[17-May-2016 12:38:52 America/Detroit] PHP Fatal error:  Call to undefined function wpcf7_add_shortcode() in /home/momentum/public_html/wp-content/plugins/contact-form-7/modules/response.php on line 8
+[17-May-2016 12:38:56 America/Detroit] PHP Fatal error:  Call to undefined function add_action() in /home/momentum/public_html/wp-content/plugins/contact-form-7/modules/number.php on line 10
+[17-May-2016 12:39:14 America/Detroit] PHP Fatal error:  Call to undefined function add_action() in /home/momentum/public_html/wp-content/plugins/contact-form-7/modules/select.php on line 8
+[17-May-2016 12:39:22 America/Detroit] PHP Fatal error:  Call to undefined function add_filter() in /home/momentum/public_html/wp-content/plugins/contact-form-7/modules/akismet.php on line 7
+[17-May-2016 12:39:33 America/Detroit] PHP Fatal error:  Class 'WPCF7_Service' not found in /home/momentum/public_html/wp-content/plugins/contact-form-7/modules/recaptcha.php on line 3
