@@ -50,7 +50,7 @@ ul { list-style: none; padding: 0; margin: 0; }
 #main-nav>ul>li>a { border-right: 2px solid #aac8e2; padding: 5px 20px; line-height: 1; min-width: 110px; text-align: center; color: #fff; text-transform: uppercase; font-size: 14px; font-family: "Karla", sans-serif; display: block; height: 24px; }
 #main-nav>ul>li>a:hover { background: url(img/nav-hover.jpg) repeat top left; }
 #main-nav ul ul { display: none; position: absolute; min-width: 180px; top: 12px; left: -20px; background: #ffcc66; -webkit-border-radius: 3px; border-radius: 3px; padding: 5px 0px; margin-top: 12px; }
-#main-nav ul ul a { display: block; min-width: 180px; padding: 3px 10px 2px 20px; font-size: 14px; font-family: "Karla", sans-serif; text-transform: uppercase; white-space:nowrap; color: #333366; }
+#main-nav ul ul a { transition: none; display: block; min-width: 180px; padding: 3px 10px 2px 20px; font-size: 14px; font-family: "Karla", sans-serif; text-transform: uppercase; white-space:nowrap; color: #333366; }
 #main-nav ul ul a:hover { background: #fea535; padding-left: 8px; padding-top: 2px; }
 #main-nav ul ul a:hover:before { font-family: "fontello"; content: "\e819"; padding-right: 5px; }
 #main-nav>ul>li:hover ul { display: block; }

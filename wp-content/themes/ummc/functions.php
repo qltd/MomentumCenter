@@ -17,7 +17,6 @@ add_image_size( 'featured-thumb', 260, 0, true);
 */
 add_filter('show_admin_bar', '__return_false');
 
-
 /*
 * Remove Featured Image
 */
@@ -29,7 +28,7 @@ function remove_post_thumb_meta_box(){
 }
 add_action( 'admin_menu' , 'remove_post_thumb_meta_box' );
 
-/* 
+/*
 * Remove Custom Fields Meta
 */
 function remove_post_custom_fields() {
