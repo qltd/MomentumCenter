@@ -42,6 +42,14 @@ ul { list-style: none; padding: 0; margin: 0; }
 #top-nav a { font-family: "Karla", sans-serif; font-size: 12px; color: #6699cc; text-transform: uppercase; }
 #top-nav a:hover { color: #333366; }
 
+
+.twitter-icon { margin-top: -5px;}
+#svg2 {
+    width: 20px;
+    height: 20px;
+    margin-bottom: -10px;
+}
+
 #menu, #close, #menu-home { display: none; }
 
 #main-nav { margin-top: 56px; height: 24px; float: left; width: 100%; padding-left: 290px; }
@@ -111,11 +119,10 @@ ul { list-style: none; padding: 0; margin: 0; }
 #home-callouts .text a:hover { text-decoration: none;}
 #home-callouts i { float: right; font-size: 25px; }
 #home-callouts .col.video { text-align: center; overflow: hidden; position: relative;  }
+#home-callouts .col.video a, #home-callouts .col.video a img { transition: none; }
 #co2 { width: 242px; }
 #co3 { width: 316px; }
 #co6 { width: 304px; }
-
-
 
 
 
@@ -273,6 +280,11 @@ footer a:hover { color: #fff; }
     #header-wrap, #header-bg, header, #header-bg-inner { position: static !important; background: none !important; width: 100% !important; }
     #header-bg { background: url(img/mobile-header-bg.gif) repeat-x 0 -59px !important; display: block !important; opacity: 1; position: fixed !important; top: 0; }
     header { width: 630px !important; text-align: center; margin: 0 auto; position: relative !important; }
+
+.twitter-icon { margin-top: -7px;}
+#svg2 path {
+    fill: white;
+}
 
     .logo-img { -webkit-transform: translate3d(0,0,0); position: relative; margin: 40px auto;  background: none !important; text-indent: 0 !important;  width: 298px; height: 208px;}
 
