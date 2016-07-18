@@ -18,7 +18,7 @@
 		</div>
 
 		<div id="co2" class="col video">
-			<a href="<?php bloginfo('url'); ?>/join-momentum/">
+			<a href="<?php echo get_permalink('11'); ?>">
 				<?php if (wpmd_is_device()): ?>
 					<img src="<?php bloginfo('template_directory'); ?>/img/mobile-slide-1.jpg" width="242"  alt="Create Change Join Now" />
 				<?php else: ?>
