@@ -345,7 +345,7 @@ footer a:hover { color: #fff; }
     padding: 5px;
 }
 .accordion.open .accordion-text {
-    max-height: 500px;
+    max-height: 1200px;
 }
 
 .accordion-toggle {
